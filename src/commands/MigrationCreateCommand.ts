@@ -117,9 +117,17 @@ export class ${camelCase(
  */
 ${exportMethod} class ${camelCase(name, true)}${timestamp} {
 
+    /**
+     * @param {QueryRunner} queryRunner
+     * @returns {Promise<void>}
+     */
     async up(queryRunner) {
     }
 
+    /**
+     * @param {QueryRunner} queryRunner
+     * @returns {Promise<void>}
+     */
     async down(queryRunner) {
     }
 
