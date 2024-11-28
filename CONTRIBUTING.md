@@ -16,7 +16,6 @@ There are several ways how you can ask your question:
 * You can create a question on [StackOverflow](https://stackoverflow.com/questions/tagged/typeorm) where the questions should be tagged with tag `typeorm`.
 * You can ask on [Discord](https://discord.gg/cC9hkmUgNa)
 * You can create issue on [github](https://github.com/typeorm/typeorm/issues)
-* If you have a Skype then try to find me there (`Umed Khudoiberdiev`)
 
 Preferred way if you create your question on StackOverflow, or create a github issue.
 
