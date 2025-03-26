@@ -108,7 +108,6 @@ export class ${camelCase(
     ): string {
         const exportMethod = esm ? "export" : "module.exports ="
         return `/**
- * @typedef {import('typeorm').QueryRunner} QueryRunner
  * @typedef {import('typeorm').MigrationInterface} MigrationInterface
  */
 
@@ -118,17 +117,9 @@ export class ${camelCase(
  */
 ${exportMethod} class ${camelCase(name, true)}${timestamp} {
 
-    /**
-     * @param {QueryRunner} queryRunner
-     * @returns {Promise<void>}
-     */
     async up(queryRunner) {
     }
 
-    /**
-     * @param {QueryRunner} queryRunner
-     * @returns {Promise<void>}
-     */
     async down(queryRunner) {
     }
 

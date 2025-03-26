@@ -14,7 +14,6 @@ export class TestMigration1610975184784 implements MigrationInterface {
 
 }`,
     javascript: `/**
- * @typedef {import('typeorm').QueryRunner} QueryRunner
  * @typedef {import('typeorm').MigrationInterface} MigrationInterface
  */
 
@@ -25,18 +24,10 @@ export class TestMigration1610975184784 implements MigrationInterface {
 module.exports = class TestMigration1610975184784 {
     name = 'TestMigration1610975184784'
 
-    /**
-     * @param {QueryRunner} queryRunner
-     * @returns {Promise<void>}
-     */
     async up(queryRunner) {
         await queryRunner.query(\`CREATE TABLE "post" ("id" SERIAL NOT NULL, "title" character varying NOT NULL, "createdAt" TIMESTAMP NOT NULL DEFAULT now(), CONSTRAINT "PK_be5fda3aac270b134ff9c21cdee" PRIMARY KEY ("id"))\`);
     }
 
-    /**
-     * @param {QueryRunner} queryRunner
-     * @returns {Promise<void>}
-     */
     async down(queryRunner) {
         await queryRunner.query(\`DROP TABLE "post"\`);
     }

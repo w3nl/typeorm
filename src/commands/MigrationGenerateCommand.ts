@@ -272,7 +272,6 @@ ${downSqls.join(`
         const exportMethod = esm ? "export" : "module.exports ="
 
         return `/**
- * @typedef {import('typeorm').QueryRunner} QueryRunner
  * @typedef {import('typeorm').MigrationInterface} MigrationInterface
  */
 
@@ -283,19 +282,11 @@ ${downSqls.join(`
 ${exportMethod} class ${migrationName} {
     name = '${migrationName}'
 
-    /**
-     * @param {QueryRunner} queryRunner
-     * @returns {Promise<void>}
-     */
     async up(queryRunner) {
 ${upSqls.join(`
 `)}
     }
 
-    /**
-     * @param {QueryRunner} queryRunner
-     * @returns {Promise<void>}
-     */
     async down(queryRunner) {
 ${downSqls.join(`
 `)}
