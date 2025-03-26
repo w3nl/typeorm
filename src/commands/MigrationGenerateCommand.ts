@@ -279,19 +279,11 @@ ${downSqls.join(`
 ${exportMethod} class ${migrationName} {
     name = '${migrationName}'
 
-    /**
-     * @param {QueryRunner} queryRunner
-     * @returns {Promise<void>}
-     */
     async up(queryRunner) {
 ${upSqls.join(`
 `)}
     }
 
-    /**
-     * @param {QueryRunner} queryRunner
-     * @returns {Promise<void>}
-     */
     async down(queryRunner) {
 ${downSqls.join(`
 `)}

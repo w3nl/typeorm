@@ -269,20 +269,12 @@ Alternatively you can also output your migrations as Javascript files using the 
  * @implements {MigrationInterface}
  */
 module.exports = class PostRefactoringTIMESTAMP {
-    /**
-     * @param {QueryRunner} queryRunner
-     * @returns {Promise<void>}
-     */
     async up(queryRunner) {
         await queryRunner.query(
             `ALTER TABLE "post" ALTER COLUMN "title" RENAME TO "name"`,
         )
     }
 
-    /**
-     * @param {QueryRunner} queryRunner
-     * @returns {Promise<void>}
-     */
     async down(queryRunner) {
         await queryRunner.query(
             `ALTER TABLE "post" ALTER COLUMN "name" RENAME TO "title"`,
@@ -304,20 +296,12 @@ By default, it generates CommonJS JavaScript code with the `o` (alias for `--out
  * @implements {MigrationInterface}
  */
 export class PostRefactoringTIMESTAMP {
-    /**
-     * @param {QueryRunner} queryRunner
-     * @returns {Promise<void>}
-     */
     async up(queryRunner) {
         await queryRunner.query(
             `ALTER TABLE "post" ALTER COLUMN "title" RENAME TO "name"`,
         )
     }
 
-    /**
-     * @param {QueryRunner} queryRunner
-     * @returns {Promise<void>}
-     */
     async down(queryRunner) {
         await queryRunner.query(
             `ALTER TABLE "post" ALTER COLUMN "name" RENAME TO "title"`,
