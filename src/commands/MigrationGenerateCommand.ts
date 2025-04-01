@@ -117,7 +117,7 @@ export class MigrationGenerateCommand implements yargs.CommandModule {
                 sqlInMemory.upQueries.forEach((upQuery) => {
                     upSqls.push(
                         "        await queryRunner.query(`" +
-                            upQuery.query.replace(new RegExp("`", "g"), "\\`") +
+                            upQuery.query.replaceAll("`", "\\`") +
                             "`" +
                             MigrationGenerateCommand.queryParams(
                                 upQuery.parameters,
@@ -128,10 +128,7 @@ export class MigrationGenerateCommand implements yargs.CommandModule {
                 sqlInMemory.downQueries.forEach((downQuery) => {
                     downSqls.push(
                         "        await queryRunner.query(`" +
-                            downQuery.query.replace(
-                                new RegExp("`", "g"),
-                                "\\`",
-                            ) +
+                            downQuery.query.replaceAll("`", "\\`") +
                             "`" +
                             MigrationGenerateCommand.queryParams(
                                 downQuery.parameters,
