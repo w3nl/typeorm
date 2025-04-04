@@ -283,7 +283,7 @@ module.exports = class PostRefactoringTIMESTAMP {
 }
 
 ```
-By default, it generates CommonJS JavaScript code with the `o` (alias for `--outputJs`) flag, but you can generate also ESM code with the `esm` flag. This is useful for Javascript projects that use ESM modules:
+By default, it generates CommonJS JavaScript code with the `o` (alias for `--outputJs`) flag, but you can generate also ESM code with the `esm` flag. This is useful for Javascript projects that use ESM:
 
 ```javascript
 /**
