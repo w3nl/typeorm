@@ -5,7 +5,7 @@ import { QueryRunner } from "../query-runner/QueryRunner"
 
 /**
  * Performs logging of the events in TypeORM.
- * This version of logger uses console to log events, sytax highlighting and formatting.
+ * This version of logger uses console to log events, syntax highlighting and formatting.
  */
 export class FormattedConsoleLogger extends AbstractLogger {
     /**
