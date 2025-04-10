@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 import fs from "fs"
 import path from "path"
 import { highlight } from "sql-highlight"
+import { format as sqlFormat } from "sql-formatter"
 
 export { EventEmitter } from "events"
 export { ReadStream } from "fs"
@@ -218,6 +219,13 @@ export class PlatformTools {
                 clear: ansi.reset.open,
             },
         })
+    }
+
+    /**
+     * Pretty-print sql string to be print in the console.
+     */
+    static formatSql(sql: string) {
+        return sqlFormat(sql)
     }
 
     /**
