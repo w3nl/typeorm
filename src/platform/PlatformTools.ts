@@ -4,7 +4,7 @@ import fs from "fs"
 import path from "path"
 import { highlight } from "sql-highlight"
 import { format as sqlFormat, type SqlLanguage } from "sql-formatter"
-import { DatabaseType } from "../driver/types/DatabaseType.js"
+import { type DatabaseType } from "../driver/types/DatabaseType"
 
 export { EventEmitter } from "events"
 export { ReadStream } from "fs"
