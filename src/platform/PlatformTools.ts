@@ -3,7 +3,7 @@ import dotenv from "dotenv"
 import fs from "fs"
 import path from "path"
 import { highlight } from "sql-highlight"
-import { format as sqlFormat, SqlLanguage } from "sql-formatter"
+import { format as sqlFormat, type SqlLanguage } from "sql-formatter"
 
 export { EventEmitter } from "events"
 export { ReadStream } from "fs"
