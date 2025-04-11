@@ -26,7 +26,6 @@ export class FormattedConsoleLogger extends AbstractLogger {
         )
 
         for (let message of messages) {
-            console.log(message.message)
             switch (message.type ?? level) {
                 case "log":
                 case "schema-build":
