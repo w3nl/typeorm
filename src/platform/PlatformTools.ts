@@ -4,6 +4,7 @@ import fs from "fs"
 import path from "path"
 import { highlight } from "sql-highlight"
 import { format as sqlFormat, type SqlLanguage } from "sql-formatter"
+import { DatabaseType } from "../driver/types/DatabaseType.js"
 
 export { EventEmitter } from "events"
 export { ReadStream } from "fs"
@@ -224,7 +225,7 @@ export class PlatformTools {
     /**
      * Pretty-print sql string to be print in the console.
      */
-    static formatSql(sql: string, dataSourceType?: string): string {
+    static formatSql(sql: string, dataSourceType?: DatabaseType): string {
         const databaseLanguageMap: Record<string, SqlLanguage> = {
             mysql: "mysql",
             mariadb: "mariadb",
