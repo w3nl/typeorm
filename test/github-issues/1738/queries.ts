@@ -5,7 +5,7 @@ FROM
   tbl`
 
 export const CASE_2_UNFORMATTED = `SELECT tbl1.col1, tbl2.col2 FROM tbl1 INNER JOIN tbl2 ON tbl1.id = tbl2.id`
-export const CASE__FORMATTED = `SELECT
+export const CASE_2_FORMATTED = `SELECT
   tbl1.col1,
   tbl2.col2
 FROM
@@ -19,6 +19,6 @@ export const FORMAT_SQL_TEST_CASES = [
     },
     {
         unformatted: CASE_2_UNFORMATTED,
-        formatted: CASE__FORMATTED,
+        formatted: CASE_2_FORMATTED,
     },
 ]
