@@ -133,7 +133,7 @@ export class MyCustomLogger extends AbstractLogger {
     ) {
         const messages = this.prepareLogMessages(logMessage, {
             highlightSql: false,
-        })
+        }, queryRunner)
 
         for (let message of messages) {
             switch (message.type ?? level) {

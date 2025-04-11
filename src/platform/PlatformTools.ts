@@ -3,7 +3,7 @@ import dotenv from "dotenv"
 import fs from "fs"
 import path from "path"
 import { highlight } from "sql-highlight"
-import { format as sqlFormat } from "sql-formatter"
+import { format as sqlFormat, SqlLanguage } from "sql-formatter"
 
 export { EventEmitter } from "events"
 export { ReadStream } from "fs"
@@ -224,8 +224,25 @@ export class PlatformTools {
     /**
      * Pretty-print sql string to be print in the console.
      */
-    static formatSql(sql: string) {
-        return sqlFormat(sql)
+    static formatSql(sql: string, dataSourceType?: string): string {
+        const databaseLanguageMap: Record<string, SqlLanguage> = {
+            mysql: "mysql",
+            mariadb: "mariadb",
+            postgres: "postgresql",
+            cockroachdb: "postgresql",
+            sqlite: "sqlite",
+            "better-sqlite3": "sqlite",
+            mssql: "transactsql",
+            oracle: "plsql",
+            "aurora-mysql": "mysql",
+            "aurora-postgres": "postgresql",
+        }
+
+        const databaseLanguage = dataSourceType
+            ? databaseLanguageMap[dataSourceType] || "sql"
+            : "sql"
+
+        return sqlFormat(sql, { language: databaseLanguage })
     }
 
     /**
