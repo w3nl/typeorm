@@ -16,10 +16,14 @@ export class FormattedConsoleLogger extends AbstractLogger {
         logMessage: LogMessage | LogMessage[],
         queryRunner?: QueryRunner,
     ) {
-        const messages = this.prepareLogMessages(logMessage, {
-            highlightSql: true,
-            formatSql: true,
-        })
+        const messages = this.prepareLogMessages(
+            logMessage,
+            {
+                highlightSql: true,
+                formatSql: true,
+            },
+            queryRunner,
+        )
 
         for (let message of messages) {
             console.log(message.message)

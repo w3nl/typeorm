@@ -293,6 +293,7 @@ export abstract class AbstractLogger implements Logger {
             | number
             | (LogMessage | string | number)[],
         options?: Partial<PrepareLogMessagesOptions>,
+        queryRunner?: QueryRunner,
     ): LogMessage[] {
         options = {
             ...{
@@ -317,7 +318,10 @@ export abstract class AbstractLogger implements Logger {
 
                 console.log("")
                 if (options.formatSql) {
-                    sql = PlatformTools.formatSql(sql)
+                    sql = PlatformTools.formatSql(
+                        sql,
+                        queryRunner?.connection?.options.type,
+                    )
                 }
 
                 if (
