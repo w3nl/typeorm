@@ -238,11 +238,10 @@ export class PlatformTools {
             ? databaseLanguageMap[dataSourceType] || "sql"
             : "sql"
 
-        const formattedQuery = sqlFormat(sql, {
+        return sqlFormat(sql, {
             language: databaseLanguage,
             indent: "    ",
         })
-        return "\n" + formattedQuery.replace(/^/gm, "            ")
     }
 
     /**
