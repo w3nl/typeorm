@@ -3,7 +3,8 @@ import dotenv from "dotenv"
 import fs from "fs"
 import path from "path"
 import { highlight } from "sql-highlight"
-import { format as sqlFormat, type SqlLanguage } from "sql-formatter"
+import { format as sqlFormat } from "@sqltools/formatter"
+import { type Config as SqlFormatterConfig } from "@sqltools/formatter/lib/core/types"
 import { type DatabaseType } from "../driver/types/DatabaseType"
 
 export { EventEmitter } from "events"
@@ -226,24 +227,22 @@ export class PlatformTools {
      * Pretty-print sql string to be print in the console.
      */
     static formatSql(sql: string, dataSourceType?: DatabaseType): string {
-        const databaseLanguageMap: Record<string, SqlLanguage> = {
-            mysql: "mysql",
-            mariadb: "mariadb",
-            postgres: "postgresql",
-            cockroachdb: "postgresql",
-            sqlite: "sqlite",
-            "better-sqlite3": "sqlite",
-            mssql: "transactsql",
-            oracle: "plsql",
-            "aurora-mysql": "mysql",
-            "aurora-postgres": "postgresql",
+        const databaseLanguageMap: Record<
+            string,
+            SqlFormatterConfig["language"]
+        > = {
+            oracle: "pl/sql",
         }
 
         const databaseLanguage = dataSourceType
             ? databaseLanguageMap[dataSourceType] || "sql"
             : "sql"
 
-        return sqlFormat(sql, { language: databaseLanguage })
+        const formattedQuery = sqlFormat(sql, {
+            language: databaseLanguage,
+            indent: "    ",
+        })
+        return "\n" + formattedQuery.replace(/^/gm, "            ")
     }
 
     /**
